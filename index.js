@@ -40,18 +40,14 @@ app.use('/register',(req,res)=>{
 })
 
 app.get('/employeelist' , (req,res) => {
-    db.query("SELECT * FROM register", 
-    (err,result)=>{
-        if(err)
-        {
-            console.log(err);
-        }
-        else{
-            res.send(result);
-        }
+    db.query("SELECT * FROM register", (err, result) => {
+    if (err) {
+        console.error('Error fetching employee data:', err);
+        res.status(500).send("Error fetching employee data");
+    } else {
+        res.send(result);
     }
-    )
-})
+});
 
 app.put("/updateEmployee/:id", (req, res) => {
     const id = req.params.id;
