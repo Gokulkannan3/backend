@@ -6,15 +6,14 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    connectionLimit: 10,
-    user: 'root',
-    host: 'localhost',
+    user: 'server',
+    host: 'az-900-my-sql-server.mysql.database.azure.com',
     password: 'Gokul@003',
     database: 'screening',
 });
 
 
-app.use('/register',(req,res)=>{
+app.post('/register',(req,res)=>{
     const firstname = req.body?.firstname;
     const lastname = req.body?.lastname;
     const dob = req.body?.dob;
