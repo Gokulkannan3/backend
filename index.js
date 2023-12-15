@@ -6,8 +6,8 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    user: 'server',
-    host: 'az-900-my-sql-server.mysql.database.azure.com',
+    user: 'root',
+    host: 'localhost',
     password: 'Gokul@003',
     database: 'screening',
 });
