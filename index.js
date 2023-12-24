@@ -1,14 +1,16 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
+const bodyParser=require('body-parser');
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const db = mysql.createConnection({
-    user: 'root',
-    host: 'localhost',
-    password: 'Gokul@003',
+    user: 'admin',
+    host: 'database-1.cfywi26s6zwq.us-east-2.rds.amazonaws.com',
+    password: 'Gokul2003',
     database: 'screening',
 });
 
@@ -40,14 +42,17 @@ app.post('/register',(req,res)=>{
 })
 
 app.get('/employeelist' , (req,res) => {
-   db.query("SELECT * FROM register", (err, result) => {
-    if (err) {
-        console.error('Error fetching employee data:', err);
-        res.status(500).send("Error fetching employee data");
-    } else {
-        res.send(result);
+    db.query("SELECT * FROM register", 
+    (err,result)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.send(result);
+        }
     }
-})
+    )
 })
 
 app.put("/updateEmployee/:id", (req, res) => {
@@ -89,6 +94,6 @@ app.delete("/delete/:id", (req, res) => {
   });
 
 
-app.listen(3306, () => {
+app.listen(5000, () => {
     console.log('Server started');
 });
