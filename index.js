@@ -16,22 +16,22 @@ const db = mysql.createConnection({
 
 
 app.post('/register',(req,res)=>{
-    const firstname = req.body?.firstname;
-    const lastname = req.body?.lastname;
-    const dob = req.body?.dob;
-    const age = req.body?.age;
-    const gender = req.body?.gender;
-    const email = req.body?.email;
-    const backupemail = req.body?.backupemail;
-    const contact = req.body?.contact;
-    const address = req.body?.address;
-    const ncompany = req.body?.ncompany;
-    const companyname = req.body?.companyname;
-    const wages = req.body?.wages;
-    const resume = req.body?.resume;
-    const country = req.body?.country;
-    const job = req.body?.job;
-    const adopt = req.body?.adopt;
+    const firstname = req.body.firstname;
+    const lastname = req.body.lastname;
+    const dob = req.body.dob;
+    const age = req.body.age;
+    const gender = req.body.gender;
+    const email = req.body.email;
+    const backupemail = req.body.backupemail;
+    const contact = req.body.contact;
+    const address = req.body.address;
+    const ncompany = req.body.ncompany;
+    const companyname = req.body.companyname;
+    const wages = req.body.wages;
+    const resume = req.body.resume;
+    const country = req.body.country;
+    const job = req.body.job;
+    const adopt = req.body.adopt;
 
     console.log(req.body);
 
@@ -58,13 +58,13 @@ app.get('/employeelist' , (req,res) => {
 app.put("/updateEmployee/:id", (req, res) => {
     const id = req.params.id;
     const updatedEmployee = {
-        firstname: req.body?.firstname,
-        lastname: req.body?.lastname,
-        gender: req.body?.gender,
-        country: req.body?.country,
-        contact: req.body?.contact,
-        wages: req.body?.wages,
-        job: req.body?.job,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        gender: req.body.gender,
+        country: req.body.country,
+        contact: req.body.contact,
+        wages: req.body.wages,
+        job: req.body.job,
       };
   
     db.query(
